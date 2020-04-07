@@ -6,8 +6,8 @@
   "scripts": {
     "start": "react-scripts start",
     "server": "nodemon src/ftd.js",
-    "client": "yarn start",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "client": "npm run start",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "proxy": "http://localhost:11086",
   "author": "",

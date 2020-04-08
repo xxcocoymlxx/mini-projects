@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import $ from 'jquery';
-import {
-    Table,
-    TableBody,
-    TableHeader,
-    TableHeaderColumn,
-    TableRow,
-    TableRowColumn,
-  } from 'material-ui/Table';
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn,} from 'material-ui/Table';
 
 class GameStats extends Component {
     constructor(props) {
@@ -35,7 +28,7 @@ class GameStats extends Component {
             <div align="center">
             <MuiThemeProvider>
             <div>
-            <p>These scores were retrieved from pre-loaded data in the db</p>
+            <p>These scores were retrieved from pre-loaded data stored in the db</p>
             <Table style={{ width: 200}}>
                     <TableHeader displaySelectAll={false}>
                       <TableRow>
@@ -115,30 +108,11 @@ class GameStats extends Component {
                     nine: data[10][1], nineuser:data[10][0],
                 });
         
-                //for (i = 1; i <= 10; i++) {
-                //    document.getElementById("row" + (i) + "username").value = data[i][0];
-                //    document.getElementById("row" + (i) + "").value = data[i][1];
-                //}
             }).fail((err)=>{
                 alert(JSON.stringify(err.responseJSON));
                 console.log(err.status);
                 console.log(JSON.stringify(err.responseJSON));
             });
-
-            /*
-            $.ajax({
-              type: 'GET',
-              url: api_url_scores,
-              success: function (data) {
-                console.log(data);
-                returnedData = data;
-              },
-              error: function (xhr, err) {
-                returnedData = "error";
-              },
-              async: false
-            });
-            */
           };
       
 

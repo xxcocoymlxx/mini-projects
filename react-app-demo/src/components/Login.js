@@ -27,6 +27,7 @@ class Login extends Component {
                 <div>
                 <AppBar title = "Login" className={style} />
                   <TextField 
+                  label="Helper text"
                   hintText = "Please enter your username" 
                   errorText={this.state.username_error_text}
                   variant="outlined"
@@ -38,7 +39,7 @@ class Login extends Component {
                   <br />
                   <TextField
                   type = "password"
-                  hintText = "password"
+                  hintText = "Please enter your password"
                   variant="outlined"
                   margin="normal"
                   required
@@ -113,7 +114,7 @@ class Login extends Component {
             "password": this.state.password
         }
 
-        var xhr = $.ajax({
+        $.ajax({
           url: "/api/login",
           method: "POST",
           data: JSON.stringify(payload),

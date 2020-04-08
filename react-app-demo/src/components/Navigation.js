@@ -6,19 +6,18 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Navigation extends Component {
 		render() {
-			var loggedIn = this.props.isLoggedIn;
 			return (
 				<div className="App">
 					<MuiThemeProvider>
 						<Toolbar style={{display: 'block'}}>
 						<ToolbarGroup >           
-							<RaisedButton labelColor='white' primary={true} disabled={!loggedIn} label={"Profile"} onClick={() => this.props.goToProfile()} />
+							<RaisedButton labelColor='white' primary={true} label={"Profile"} onClick={() => this.props.goToProfile()} />
 							<ToolbarSeparator />  
-							<RaisedButton labelColor='white' primary={true} disabled={!loggedIn} label={"Game"} onClick={() => this.props.playFunc()}/> 
+							<RaisedButton labelColor='white' primary={true} label={"Game"} onClick={() => this.props.playFunc()}/> 
 							<ToolbarSeparator />  
-							<RaisedButton labelColor='white' primary={true} disabled={!loggedIn} label={"TOP 10"} onClick={() => this.props.goToGameStats()}/>
+							<RaisedButton labelColor='white' primary={true} label={"TOP 10"} onClick={() => this.props.goToGameStats()}/>
 							<ToolbarSeparator />
-							<RaisedButton labelColor='white' primary={true} disabled={!loggedIn} label={"Logout"} onClick={() => this.props.logoutFunc()}/> 
+							<RaisedButton labelColor='white' primary={true} label={"Logout"} onClick={() => this.props.logoutFunc()}/> 
 							<ToolbarSeparator />  
 						</ToolbarGroup>  
 						</Toolbar>

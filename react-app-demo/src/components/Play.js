@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+//We don't currently have a game.
 class Play extends Component {
     //constructor(props) {
     //    super(props);
@@ -7,7 +8,7 @@ class Play extends Component {
 
     render(){
         return (
-            <h1>Hello World</h1>
+            <center> <h3>The game server is currently down.</h3></center>
         );
     }
 }

@@ -3,23 +3,18 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { AppBar, RadioButton, RadioButtonGroup, RaisedButton, TextField } from 'material-ui';
 import $ from 'jquery';
 
+// The registration page
 class Register extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            username: '',
-            password: '',
-            password_repeat: '',
-            firstName: '',
-            email: '',
-            gender: '',
-            username_error_text: '',
-            password_error_text: '',
-            password_repeat_error_text: '',
-            firstname_error_text: '',
-            email_error_text: '',
-            gender_error_text: ''
+            username: '', username_error_text: '',
+            password: '', password_error_text: '',
+            password_repeat: '', password_repeat_error_text: '',
+            firstName: '', firstname_error_text: '',
+            email: '',  email_error_text: '',
+            gender: '',  gender_error_text: ''
         }
 
         this.clear = this.clear.bind(this);
@@ -72,46 +67,18 @@ class Register extends Component {
                   value = {this.state.email}
                   onChange = {(event, newValue) => this.setState({email: newValue})}
                   />
-                  <br />
-                  <br />
+                  <br /><br />
                   Please choose your gender: <br />
                   <RadioButtonGroup labelPosition = 'left' name = "gender" onChange = {(event, newValue) => this.setState({gender: newValue})}>
-                    <RadioButton
-                      value = "male"
-                      label = "male"
-                      style = {style.radioButton}
-                    />
-                    <RadioButton
-                      value = "female"
-                      label = "female"
-                      style = {style.radioButton}
-                    />
-                    <RadioButton
-                      value = "unknown"
-                      label = "unknown"
-                      style = {style.radioButton}
-                    />
+                    <RadioButton value = "male" label = "male" style = {style.radioButton}/>
+                    <RadioButton value = "female" label = "female" style = {style.radioButton}/>
+                    <RadioButton value = "unknown" label = "unknown" style = {style.radioButton}/>
                   </RadioButtonGroup>
                   <div style={style.div} className='error-text'>{this.state.gender_error_text}</div>
                   <br />
-                  <RaisedButton 
-                  label = "Submit" 
-                  primary = {true} 
-                  style = {style} 
-                  onClick = {(event) => this.validateUserInput(event)}
-                  />
-                  <RaisedButton 
-                  label = "Clear" 
-                  primary = {true} 
-                  style = {style} 
-                  onClick = {this.clear}
-                  />
-                  <RaisedButton 
-                  label = "Back To Login" 
-                  primary = {true} 
-                  style = {style} 
-                  onClick = {this.props.backToLogin}
-                  />
+                  <RaisedButton  label = "Submit"  primary = {true} style = {style} onClick = {(event) => this.validateUserInput(event)}/>
+                  <RaisedButton label = "Clear" primary = {true} style = {style} onClick = {this.clear}/>
+                  <RaisedButton label = "Back To Login" primary = {true} style = {style} onClick = {this.props.backToLogin}/>
                 </div>
               </MuiThemeProvider>
             </div>
@@ -120,12 +87,9 @@ class Register extends Component {
 
     clear = () => {
       this.setState({
-        username: '',
-        password: '',
-        password_repeat: '',
-        firstName: '',
-        email: '',
-        gender: '',
+        username: '', password: '',
+        password_repeat: '', firstName: '',
+        email: '', gender: '',
       });
     }
 

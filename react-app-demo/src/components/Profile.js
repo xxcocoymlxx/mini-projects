@@ -3,7 +3,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { AppBar, RadioButton, RadioButtonGroup, RaisedButton, TextField } from 'material-ui';
 import $ from 'jquery';
 
-
+// The profile component 
+// pre-fills user's information
+// Users are able to update their profile and delete their account here
 class Profile extends Component {
     constructor(props) {
         super(props);
@@ -11,34 +13,24 @@ class Profile extends Component {
        this.getUserData();
 
        this.state = {
-        username: '',
-        password: '',
-        password_repeat: '',
-        firstName: '',
-        email: '',
-        gender: '',
-        username_error_text: '',
-        password_error_text: '',
-        password_repeat_error_text: '',
-        firstname_error_text: '',
-        email_error_text: '',
-        gender_error_text: ''
+        username: '', username_error_text: '',
+        password: '', password_error_text: '',
+        password_repeat: '', password_repeat_error_text: '',
+        firstName: '', firstname_error_text: '',
+        email: '', email_error_text: '',
+        gender: '', gender_error_text: '' 
     }
-    }
+  }
 
     render() {
         return (
             <div align="center">
               <MuiThemeProvider>
                   <div>
-                      
                       <AppBar title = "Profile" style = {style.display} />
-                      Username<br />
-                      <TextField
-                      required
-                      defaultValue = {this.state.username}
-                      disabled = { true }
-                        />
+                        Username
+                        <br />
+                        <TextField required defaultValue = {this.state.username} disabled = { true }/>
                         <br />
                         Password<br />
                         <TextField
@@ -73,41 +65,17 @@ class Profile extends Component {
                         defaultValue = {this.state.email}
                         onChange = {(event, newValue) => this.setState({email: newValue})}
                         />
-                        <br />
-                        
-                        <br />
+                        <br /><br />
                         Please choose your gender: <br />
                         <RadioButtonGroup labelPosition = 'left' name = "gender"  valueSelected= {this.state.gender} onChange = {(event, newValue) => this.setState({gender: newValue})}>
-                            <RadioButton
-                            value = "male"
-                            label = "male"
-                            style = {style.radioButton}
-                            />
-                            <RadioButton
-                            value = "female"
-                            label = "female"
-                            style = {style.radioButton}
-                            />
-                            <RadioButton
-                            value = "no"
-                            label = "unknown"
-                            style = {style.radioButton}
-                            />
+                            <RadioButton value = "male" label = "male" style = {style.radioButton}/>
+                            <RadioButton value = "female" label = "female" style = {style.radioButton}/>
+                            <RadioButton value = "no" label = "unknown" style = {style.radioButton}/>
                         </RadioButtonGroup>
                         <div style={style.div} className='error-text'>{this.state.gender_error_text}</div>
                         <br />
-                        <RaisedButton 
-                        label = "Update" 
-                        primary = {true} 
-                        style = {style} 
-                        onClick = {(event) => this.validateUserInput(event)}
-                        />
-                        <RaisedButton 
-                        label = "Delete Account" 
-                        primary = {true} 
-                        style = {style} 
-                        onClick = {(event) => this.deleteUser(event)}
-                        />
+                        <RaisedButton label = "Update" primary = {true} style = {style} onClick = {(event) => this.validateUserInput(event)}/>
+                        <RaisedButton label = "Delete Account" primary = {true} style = {style} onClick = {(event) => this.deleteUser(event)}/>
                     </div>
               </MuiThemeProvider>
             </div>
@@ -267,17 +235,13 @@ class Profile extends Component {
 }
 
 const style = {
-    margin: 15,
-    labelColor: 'white',
+    margin: 15, labelColor: 'white',
     radioButton: {
       width: 'auto',
       textAlign: 'center',
       display: 'inline-block'
     },
-    div: {
-      color: 'red',
-      textAlign: 'center',
-      fontSize: 12
+    div: {color: 'red', textAlign: 'center', fontSize: 12
     }
   };
   

@@ -35,6 +35,7 @@ class GameStats extends Component {
             <div align="center">
             <MuiThemeProvider>
             <div>
+            <p>These scores were retrieved from pre-loaded data in the db</p>
             <Table style={{ width: 200}}>
                     <TableHeader displaySelectAll={false}>
                       <TableRow>

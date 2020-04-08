@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-
 import Navigation from './components/Navigation';
 import Profile from './components/Profile';
 import Login from './components/Login';
 import Play from './components/Play';
 import Register from './components/Register';
 import GameStats from './components/GameStats';
+
+//the root "component"
 
 const PAGES = {
   LOGIN: 0,

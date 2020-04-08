@@ -35,12 +35,14 @@ class Profile extends Component {
                       <AppBar title = "Profile" style = {style.display} />
                       Username<br />
                       <TextField
+                      required
                       defaultValue = {this.state.username}
                       disabled = { true }
                         />
                         <br />
                         Password<br />
                         <TextField
+                        required
                         type = "password"
                         errorText={this.state.password_error_text}
                         defaultValue = {this.state.password}
@@ -49,6 +51,7 @@ class Profile extends Component {
                         <br />
                         Repeat Password<br />
                         <TextField
+                        required
                         type = "password"
                         errorText={this.state.password_repeat_error_text}
                         defaultValue = {this.state.password_repeat}
@@ -57,6 +60,7 @@ class Profile extends Component {
                         <br />
                         First Name<br />
                         <TextField
+                        required
                         errorText={this.state.firstname_error_text}
                         defaultValue = {this.state.firstName}
                         onChange = {(event, newValue) => this.setState({firstName: newValue})}
@@ -64,6 +68,7 @@ class Profile extends Component {
                         <br />
                         Email<br />
                         <TextField
+                        required
                         errorText={this.state.email_error_text}
                         defaultValue = {this.state.email}
                         onChange = {(event, newValue) => this.setState({email: newValue})}

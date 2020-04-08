@@ -1,6 +1,6 @@
-#!/bin/bash
+# DO NOT run this file
+# Please see README.txt in order to run our application
 # -------------------------------------------------------------------------
-# Here is what we did to set this all up...
 rm package*
 rm -fr node_modules
 
@@ -31,6 +31,7 @@ npm i cors
 npm install material-ui@latest
 npm install react-router-dom
 npm install --save react-scripts
+npm install @material-ui/core --save
 
 #JWT for authentication 
 npm install --save jsonwebtoken
@@ -39,8 +40,6 @@ npm install --save dotenv
 
 sqlite3 ./db/database.db < ./db/schema.sql 
 
-# check out the package.json now
-# check out node_modules
 
 #nodejs ftd.js PORT_NUMBER
 # http://142.1.200.148:PORT_NUMBER

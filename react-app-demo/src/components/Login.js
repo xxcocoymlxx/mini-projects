@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Link from '@material-ui/core/Link';
 import { AppBar, RaisedButton, TextField } from 'material-ui';
 import $ from 'jquery';
 
@@ -17,15 +18,20 @@ class Login extends Component {
         this.submit = this.submit.bind(this);
     }
 
+
     render() {
         return (
+          
             <div align="center">
               <MuiThemeProvider>
                 <div>
-                  <AppBar title = "Login" />
+                <AppBar title = "Login" className={style} />
                   <TextField 
                   hintText = "Please enter your username" 
                   errorText={this.state.username_error_text}
+                  variant="outlined"
+                  margin="normal"
+                  required
                   value = {this.state.username}
                   onChange = {(event, newValue) => this.setState({username: newValue})}
                   />
@@ -33,6 +39,9 @@ class Login extends Component {
                   <TextField
                   type = "password"
                   hintText = "password"
+                  variant="outlined"
+                  margin="normal"
+                  required
                   floatingLabelText = "Please enter your password"
                   errorText={this.state.password_error_text}
                   value = {this.state.password}
@@ -45,6 +54,10 @@ class Login extends Component {
                   style = {style} 
                   onClick = {(event) => this.validateUserInput(event)}
                   />
+                  <br />
+                  <Link href="#" variant="body2">
+                {"Don't have an account?"}
+                </Link>
                   <RaisedButton 
                   label = "Register" 
                   secondary = {true} 
@@ -57,6 +70,8 @@ class Login extends Component {
             </div>
         )
     }
+
+    
 
     validateUsername() {
       if (!this.state.username) {
@@ -110,19 +125,14 @@ class Login extends Component {
           console.log(err);
             alert("invalid username or password. please try again.");
         }
-        });
-        
-        
-        xhr.done((data, text_status, jqXHR)=>{
+        }).done((data, text_status, jqXHR)=>{
           //if in this case means login successful, otherwise there's gonna be an error
           var returned = JSON.stringify(data);
           console.log(returned);
           alert("login was successful!");
           this.props.loginFunc(data['accessToken'], this.state.username);		
   
-        })
-        
-        xhr.fail((err)=>{
+        }).fail((err)=>{
           if (err){
             console.log(err);
           }
@@ -131,9 +141,10 @@ class Login extends Component {
     }   
     };
 
-    //this.props.loginFunc(data["token"], data["username"]);
+
 const style = {
-  margin: 15
+  margin: 15,
+  background : '#2E3B55'
 };
 
 export default Login;
